@@ -1,0 +1,61 @@
+{% extends "index.html" %}
+{% block content %}
+<nav class="navbar navbar-expand-lg bg-white navbar-light shadow-sm py-3 py-lg-0 px-3 px-lg-0">
+        
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto py-0">
+            {% if login == 'Attribute' %}
+            <a href="{% url 'home' %}" class="nav-item nav-link ">Home</a>
+            <a href="{% url 'useractivation' %}" class="nav-item nav-link">User Activation</a>
+            <a href="{% url 'viewactiveusers' %}" class="nav-item nav-link">View Active Users</a>
+            {% elif login == 'Owner' %}
+            <a href="{% url 'home' %}" class="nav-item nav-link ">Home</a>
+            <a href="{% url 'uploadfile' %}" class="nav-item nav-link">Upload File</a>
+            <a href="{% url 'myfiles' %}" class="nav-item nav-link">MyFiles</a>
+            <a href="{% url 'encryptedindex' %}" class="nav-item nav-link">Encrypted Index</a>
+            {% elif login == 'CSP' %}
+            <a href="{% url 'home' %}" class="nav-item nav-link ">Home</a>
+            <a href="{% url 'searchrequest' %}" class="nav-item nav-link">Access Requests</a>
+            <a href="{% url 'verifiedrequests' %}" class="nav-item nav-link">Verified Requests</a>
+            <a href="{% url 'allsearchrequests' %}" class="nav-item nav-link">All Access Requests</a>
+            <a href="{% url 'viewdownloads' %}" class="nav-item nav-link">Downloads</a>
+            {% elif login == 'User' %}
+            <a href="{% url 'home' %}" class="nav-item nav-link ">Home</a>
+            <a href="{% url 'getsearch' %}" class="nav-item nav-link">Get Search Requests</a>
+            <a href="{% url 'verifiedresults' %}" class="nav-item nav-link">Verified Results</a>
+            <!-- <a href="{% url 'myrequests' %}" class="nav-item nav-link">All Access Requests</a> -->
+            {% elif login == 'Verification' %}
+            <a href="{% url 'home' %}" class="nav-item nav-link ">Home</a>
+            <a href="{% url 'viewactiveusers' %}" class="nav-item nav-link">View Users</a>
+            <a href="{% url 'searchaccessrequest' %}" class="nav-item nav-link">Search Access Requests</a>
+            <a href="{% url 'allsearchrequests' %}" class="nav-item nav-link">All Search Requests</a>
+            {% endif %}
+            <a href="{% url 'Logout' %}" class="nav-item nav-link">Logout</a>
+            
+        </div>
+    </div>
+</nav>
+<!-- Navbar End -->
+
+{% block title %}
+<!-- Hero Start -->
+
+<div class="container-fluid bg-primary py-5 mb-5 hero-header" style="background: url('/static/img/i21.jpg') no-repeat center center; background-size: cover; height: calc(100vh - 70px);">
+    <div class="container py-5">
+        <!-- Hero header content goes here -->
+    </div>
+</div>
+
+        
+
+
+<!-- Hero End -->
+
+{% endblock %}
+<!-- Video Modal Start -->
+<a href="#" class="btn btn-primary py-3 fs-4 back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+{% endblock %}

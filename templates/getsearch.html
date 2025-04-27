@@ -1,0 +1,83 @@
+{% extends "home.html" %}
+{% block title %}
+    <title>File Upload Form</title>
+
+    <style>
+        .center-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #c2a987; /* Light grey background */
+        }
+
+        .upload-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 600px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666;
+        }
+
+        input[type="text"], input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .upload-button {
+            width: 100%;
+            padding: 10px;
+            background-color: #5c67f2;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .upload-button:hover {
+            background-color: #5058e5;
+        }
+    </style>
+
+    <div class="center-container">
+        
+        <div class="upload-container">
+            {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+            <form action="{% url 'getsearch' %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <h2>Get Search Request</h2>
+                <div class="input-group">
+                    <label for="Keyword">Keyword:</label>
+                    <input type="text" id="Keyword 1" name="Keyword" placeholder="Enter Keyword " required>
+                </div>
+                
+                <button type="submit" class="upload-button">Submit</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

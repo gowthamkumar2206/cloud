@@ -1,0 +1,101 @@
+{% extends "home.html" %}
+{% block title %}
+<title>Encrypted Index</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #c2a987;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+        margin-top: 40px;
+       
+       
+       
+    }
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: center;
+        padding: 8px;
+    }
+    td {
+        color: white;
+        
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    .add-stock-button {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        transition: 0.3s;
+       
+    }
+    .add-stock-button:hover {
+        background-color: #45a049;
+    }
+    h1{
+        color: rgb(20, 20, 20);
+        margin-top: 30px;
+
+    }
+    .containr{
+        overflow: scroll;
+    }
+</style>
+</head>
+<body>
+    <div class="containr">
+<center><h1>Encrypted Index </h1></center> 
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>FileName</th>
+            <th>Keyword 1</th>
+            <th>Keyword 2</th>
+            <th>Keyword 3</th>
+       
+            
+        </tr>
+    </thead>
+    {% for  data in files %}
+    <tbody>
+      
+        <tr>
+            <td>{{data.id}}</td>
+            <td>{{data.filename}}</td>
+            <td style="white-space: pre;">{{ data.keyword1 }}</td>           
+            <td style="white-space: pre;">{{ data.keyword2 }}</td>
+            <td style="white-space: pre;">{{ data.keyword3 }}</td>
+            
+            
+            
+
+
+           
+           
+    </tr>
+       
+    </tbody>
+    {% endfor %}
+</table>
+</div>
+{% comment %} <center>
+<a href="{% url 'addstock' %}" ><div class="add-stock-button">Add Stock </div></a>
+</center> {% endcomment %}
+{% endblock %}

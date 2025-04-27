@@ -1,0 +1,86 @@
+{% extends "home.html" %}
+{% block title %}
+<title>User Activation </title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #c2a987; /* Light grey background */
+    }
+    table {
+        width: 80%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+        margin-top: 40px;
+        margin-left: 150px;
+       
+    }
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: center;
+        padding: 8px;
+    }
+    td {
+        color: white;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    .add-stock-button {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        transition: 0.3s;
+       
+    }
+    .add-stock-button:hover {
+        background-color: #45a049;
+    }
+    h1{
+        color: rgb(20, 20, 20);
+        margin-top: 30px;
+
+    }
+</style>
+</head>
+<body>
+<center><h1>All Access Requests</h1></center> 
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Keyword</th>
+            <th>Verified Status</th>
+            <th>Requested Time</th>
+            
+            
+        </tr>
+    </thead>
+    {% for  user in search %}
+    <tbody>
+      
+        <tr>
+            <td>{{user.id}}</td>
+            <td>{{user.keyword}}</td>
+            <td>{{user.status}}</td>
+            <td>{{user.time}}</td>
+            
+           
+            
+    </tr>
+       
+    </tbody>
+    {% endfor %}
+</table>
+
+{% endblock %}
